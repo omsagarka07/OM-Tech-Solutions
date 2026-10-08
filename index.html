@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="description" content="OM Tech Solutions - We build websites, web applications, AI automation, event pages and digital invitations. Order your project on WhatsApp today." />
 <meta name="keywords" content="OM Tech Solutions, web development, website design, app development, AI automation, event page, invitation website, India" />
 <meta name="author" content="Om Sagarka" />
@@ -17,7 +17,7 @@
 
 <style>
 /* =========================================================
-   OM TECH SOLUTIONS — PRODUCTION DESIGN SYSTEM
+   OM TECH SOLUTIONS — PRODUCTION DESIGN SYSTEM v2
    ========================================================= */
 :root{
   --primary:#2563eb;
@@ -28,6 +28,7 @@
   --violet:#8b5cf6;
   --success:#22c55e;
   --amber:#f59e0b;
+  --rose:#f43f5e;
   --wa:#25d366;
   --wa-600:#128c7e;
 
@@ -52,13 +53,13 @@
   --sh-sm:0 2px 10px -2px rgba(15,23,42,.08);
   --sh-md:0 16px 40px -18px rgba(15,23,42,.22);
   --sh-lg:0 34px 70px -28px rgba(15,23,42,.28);
+  --sh-xl:0 50px 100px -40px rgba(15,23,42,.35);
   --sh-blue:0 16px 34px -12px rgba(37,99,235,.5);
   --sh-wa:0 16px 34px -12px rgba(37,211,102,.5);
 
   --ease:cubic-bezier(.4,0,.2,1);
   --t:.32s cubic-bezier(.4,0,.2,1);
   --nav-h:76px;
-  --container:1200px;
 }
 
 [data-theme="dark"]{
@@ -115,9 +116,15 @@ input,select,textarea{font-family:inherit;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-600);}
 
 /* =========================================================
-   UTILITIES
+   TYPOGRAPHY
    ========================================================= */
-.container{max-width:var(--container);width:100%;padding-left:20px;padding-right:20px;margin:0 auto;}
+h1,h2,h3,h4,h5,h6{
+  font-family:"Plus Jakarta Sans","Inter",sans-serif;
+  font-weight:800;
+  color:var(--text-strong);
+  letter-spacing:-.03em;
+  line-height:1.15;
+}
 
 .grad-text{
   background:linear-gradient(115deg,var(--primary) 0%,var(--accent) 55%,var(--violet) 100%);
@@ -125,10 +132,13 @@ input,select,textarea{font-family:inherit;}
   -webkit-text-fill-color:transparent;color:transparent;
 }
 
-.section{padding:clamp(72px,9vw,116px) 0;position:relative;}
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+.section{padding:clamp(64px,8vw,110px) 0;position:relative;}
 .section-soft{background:var(--bg-soft);}
 
-.section-head{max-width:730px;margin:0 auto clamp(44px,5vw,64px);text-align:center;}
+.section-head{max-width:760px;margin:0 auto clamp(38px,5vw,60px);text-align:center;padding:0 8px;}
 
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
@@ -137,7 +147,7 @@ input,select,textarea{font-family:inherit;}
   background:var(--primary-50);
   border:1px solid rgba(37,99,235,.16);
   padding:7px 16px;border-radius:var(--r-full);
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 .eyebrow::before{
   content:"";width:6px;height:6px;border-radius:50%;
@@ -146,37 +156,14 @@ input,select,textarea{font-family:inherit;}
 }
 
 .h-display{
-  font-family:"Plus Jakarta Sans","Inter",sans-serif;
-  font-weight:800;color:var(--text-strong);
-  letter-spacing:-.035em;line-height:1.12;
-  font-size:clamp(1.8rem,3.6vw,2.7rem);
-  margin-bottom:16px;
+  font-size:clamp(1.75rem,3.6vw,2.6rem);
+  margin-bottom:14px;
 }
 .lead-text{
-  color:var(--muted);font-size:clamp(.96rem,1.1vw,1.06rem);
-  line-height:1.75;margin:0;
-}
-.on-dark .h-display{color:#fff;}
-.on-dark .lead-text{color:#94a3b8;}
-
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
-
-/* =========================================================
-   PROJECTS GRID — FULLY RESPONSIVE
-   ========================================================= */
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  gap:24px;
-  margin-bottom:52px;
-}
-@media (max-width:600px){
-  .projects-grid{
-    grid-template-columns:1fr;
-    gap:20px;
-  }
+  color:var(--muted);
+  font-size:clamp(.94rem,1.1vw,1.05rem);
+  line-height:1.75;
+  margin:0;
 }
 
 /* =========================================================
@@ -190,13 +177,13 @@ input,select,textarea{font-family:inherit;}
 }
 
 /* =========================================================
-   NAVBAR
+   NAVBAR (Bootstrap-based)
    ========================================================= */
 .nav-shell{
   position:fixed;top:0;left:0;right:0;z-index:2000;
   padding:14px 0;transition:padding .35s var(--ease);
 }
-.nav-shell.scrolled{padding:9px 0;}
+.nav-shell.scrolled{padding:8px 0;}
 
 .nav-bar{
   display:flex;align-items:center;gap:20px;
@@ -327,7 +314,7 @@ input,select,textarea{font-family:inherit;}
    ========================================================= */
 .hero{
   position:relative;overflow:hidden;
-  padding:calc(var(--nav-h) + 74px) 0 90px;
+  padding:calc(var(--nav-h) + 70px) 0 80px;
   background:
     radial-gradient(ellipse 80% 60% at 15% 0%,rgba(37,99,235,.09),transparent 60%),
     radial-gradient(ellipse 70% 60% at 90% 20%,rgba(6,182,212,.08),transparent 60%),
@@ -363,7 +350,7 @@ input,select,textarea{font-family:inherit;}
   color:var(--text-strong);
   font-size:.8rem;font-weight:700;
   padding:8px 17px;border-radius:var(--r-full);
-  margin-bottom:26px;box-shadow:var(--sh-xs);
+  margin-bottom:24px;box-shadow:var(--sh-xs);
 }
 .dot-live{width:8px;height:8px;border-radius:50%;background:var(--success);position:relative;flex-shrink:0;}
 .dot-live::after{
@@ -373,21 +360,19 @@ input,select,textarea{font-family:inherit;}
 @keyframes ping{0%{transform:scale(.8);opacity:.6;}80%,100%{transform:scale(2.1);opacity:0;}}
 
 .hero h1{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-weight:800;color:var(--text-strong);
-  font-size:clamp(2.15rem,5.4vw,3.9rem);
+  font-size:clamp(2rem,5.4vw,3.8rem);
   line-height:1.06;letter-spacing:-.045em;
-  margin-bottom:24px;
+  margin-bottom:22px;
 }
 .hero p.hero-sub{
-  color:var(--muted);font-size:clamp(1rem,1.3vw,1.1rem);
-  line-height:1.75;max-width:590px;margin-bottom:34px;
+  color:var(--muted);font-size:clamp(.98rem,1.3vw,1.1rem);
+  line-height:1.75;max-width:590px;margin-bottom:32px;
 }
-.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:34px;}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px;}
 
 .trust-row{
-  display:flex;flex-wrap:wrap;gap:10px 26px;
-  padding-top:26px;border-top:1px solid var(--line);
+  display:flex;flex-wrap:wrap;gap:10px 24px;
+  padding-top:24px;border-top:1px solid var(--line);
 }
 .trust-row span{
   display:inline-flex;align-items:center;gap:8px;
@@ -426,8 +411,7 @@ input,select,textarea{font-family:inherit;}
   box-shadow:0 12px 24px -10px rgba(37,99,235,.65);
 }
 .mock-body h3{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1.08rem;font-weight:800;color:var(--text-strong);
+  font-size:1.08rem;font-weight:800;
   margin-bottom:16px;letter-spacing:-.02em;
 }
 .mock-list{list-style:none;display:grid;gap:11px;}
@@ -460,7 +444,7 @@ input,select,textarea{font-family:inherit;}
    MARQUEE
    ========================================================= */
 .marquee-wrap{
-  padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   background:var(--surface);overflow:hidden;position:relative;
 }
 .marquee-wrap::before,.marquee-wrap::after{
@@ -482,15 +466,16 @@ input,select,textarea{font-family:inherit;}
 @keyframes slide{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* =========================================================
-   CARDS BASE
+   UNIVERSAL CARD
    ========================================================= */
-.card{
+.card-base{
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:var(--r);
   transition:var(--t);
   position:relative;
   display:flex;flex-direction:column;
+  height:100%;
 }
 
 /* Services */
@@ -521,8 +506,7 @@ input,select,textarea{font-family:inherit;}
   box-shadow:0 14px 28px -12px rgba(37,99,235,.75);
 }
 .svc h4{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1.08rem;font-weight:800;color:var(--text-strong);
+  font-size:1.08rem;font-weight:800;
   margin-bottom:10px;letter-spacing:-.02em;position:relative;z-index:1;
 }
 .svc p{
@@ -533,13 +517,14 @@ input,select,textarea{font-family:inherit;}
   color:var(--primary);font-weight:700;font-size:.87rem;
   display:inline-flex;align-items:center;gap:8px;
   transition:gap .3s var(--ease);position:relative;z-index:1;
+  align-self:flex-start;
 }
 .svc-link:hover{color:var(--primary-600);gap:13px;}
 
-/* Stats */
+/* Stats Band */
 .stats-band{
   position:relative;overflow:hidden;
-  padding:clamp(58px,7vw,80px) 0;
+  padding:clamp(56px,7vw,80px) 0;
   background:
     radial-gradient(ellipse 60% 90% at 12% 10%,rgba(6,182,212,.32),transparent 60%),
     radial-gradient(ellipse 60% 90% at 88% 90%,rgba(139,92,246,.28),transparent 60%),
@@ -550,21 +535,17 @@ input,select,textarea{font-family:inherit;}
   background-image:radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1px);
   background-size:26px 26px;opacity:.35;pointer-events:none;
 }
-.stats-grid{
-  position:relative;z-index:1;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
-}
 .stat{
   text-align:center;padding:22px 14px;border-radius:var(--r);
   background:rgba(255,255,255,.07);
   border:1px solid rgba(255,255,255,.13);
   backdrop-filter:blur(6px);
-  transition:var(--t);
+  transition:var(--t);height:100%;
 }
 .stat:hover{background:rgba(255,255,255,.12);transform:translateY(-5px);}
 .stat b{
   display:block;font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:clamp(1.9rem,3.6vw,2.85rem);font-weight:800;
+  font-size:clamp(1.8rem,3.6vw,2.75rem);font-weight:800;
   line-height:1;letter-spacing:-.04em;margin-bottom:9px;
   background:linear-gradient(140deg,#fff,#bfdbfe 60%,#67e8f9);
   -webkit-background-clip:text;background-clip:text;
@@ -572,7 +553,7 @@ input,select,textarea{font-family:inherit;}
 }
 .stat small{
   display:block;color:rgba(255,255,255,.82);
-  font-size:.84rem;font-weight:600;letter-spacing:.02em;
+  font-size:.82rem;font-weight:600;letter-spacing:.02em;
 }
 
 /* Why */
@@ -588,18 +569,17 @@ input,select,textarea{font-family:inherit;}
   color:#fff;transform:scale(1.08);
 }
 .why h5{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1rem;font-weight:800;color:var(--text-strong);
+  font-size:1rem;font-weight:800;
   margin-bottom:8px;letter-spacing:-.02em;
 }
 .why p{color:var(--muted);font-size:.9rem;line-height:1.7;margin:0;}
 
 /* Pricing */
 .price{
-  padding:36px 30px;border-radius:var(--r-lg);
+  padding:34px 28px;border-radius:var(--r-lg);
   background:var(--surface);border:1px solid var(--line);
   display:flex;flex-direction:column;position:relative;
-  transition:var(--t);
+  transition:var(--t);height:100%;
 }
 .price:hover{transform:translateY(-8px);box-shadow:var(--sh-lg);border-color:rgba(37,99,235,.3);}
 
@@ -621,14 +601,13 @@ input,select,textarea{font-family:inherit;}
   box-shadow:0 10px 22px -8px rgba(37,99,235,.8);
 }
 .price-name{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1.06rem;font-weight:800;color:var(--text-strong);
+  font-size:1.06rem;font-weight:800;
   letter-spacing:-.02em;margin-bottom:12px;
 }
 .price-amount{display:flex;align-items:baseline;gap:7px;margin-bottom:8px;flex-wrap:wrap;}
 .price-amount b{
   font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:clamp(2rem,3.4vw,2.4rem);font-weight:800;
+  font-size:clamp(1.9rem,3.4vw,2.35rem);font-weight:800;
   letter-spacing:-.045em;line-height:1;
   color:var(--text-strong);
 }
@@ -640,7 +619,7 @@ input,select,textarea{font-family:inherit;}
 .price-amount small{font-size:.82rem;font-weight:600;color:var(--muted);}
 .price-desc{color:var(--muted);font-size:.88rem;line-height:1.65;margin-bottom:22px;}
 
-.price ul{list-style:none;display:grid;gap:11px;margin-bottom:28px;flex:1;padding:0;}
+.price ul{list-style:none;display:grid;gap:11px;margin-bottom:26px;flex:1;padding:0;}
 .price ul li{
   display:flex;align-items:flex-start;gap:11px;
   font-size:.89rem;color:var(--text);line-height:1.55;
@@ -652,11 +631,10 @@ input,select,textarea{font-family:inherit;}
 }
 
 /* Process */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative;}
 .step{
   padding:32px 26px;position:relative;overflow:hidden;
   background:var(--surface);border:1px solid var(--line);
-  border-radius:var(--r);transition:var(--t);
+  border-radius:var(--r);transition:var(--t);height:100%;
 }
 .step:hover{transform:translateY(-8px);box-shadow:var(--sh-md);border-color:rgba(37,99,235,.28);}
 .step-n{
@@ -676,13 +654,12 @@ input,select,textarea{font-family:inherit;}
   color:#fff;transform:scale(1.08) rotate(-5deg);
 }
 .step h5{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1rem;font-weight:800;color:var(--text-strong);
+  font-size:1rem;font-weight:800;
   margin-bottom:8px;letter-spacing:-.02em;
 }
 .step p{color:var(--muted);font-size:.9rem;line-height:1.7;margin:0;}
 
-/* Projects — light & consistent */
+/* Projects — Bootstrap row makes it responsive automatically */
 .proj{
   border-radius:var(--r);
   overflow:hidden;
@@ -709,6 +686,7 @@ input,select,textarea{font-family:inherit;}
   color:var(--primary);
   background:linear-gradient(140deg,rgba(37,99,235,.12),rgba(6,182,212,.12));
   border-bottom:1px solid var(--line);
+  flex-shrink:0;
 }
 .proj-thumb::after{
   content:"";
@@ -728,7 +706,7 @@ input,select,textarea{font-family:inherit;}
   color:var(--primary-600);
 }
 .proj-body{
-  padding:26px 24px 28px;
+  padding:24px 22px 26px;
   display:flex;
   flex-direction:column;
   flex:1;
@@ -740,7 +718,7 @@ input,select,textarea{font-family:inherit;}
   margin-bottom:14px;
 }
 .proj-tags span{
-  font-size:.67rem;
+  font-size:.66rem;
   font-weight:700;
   letter-spacing:.05em;
   background:var(--primary-50);
@@ -750,10 +728,8 @@ input,select,textarea{font-family:inherit;}
   border:1px solid rgba(37,99,235,.16);
 }
 .proj-body h5{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:1.15rem;
+  font-size:1.12rem;
   font-weight:800;
-  color:var(--text-strong);
   letter-spacing:-.02em;
   margin-bottom:10px;
 }
@@ -778,36 +754,6 @@ input,select,textarea{font-family:inherit;}
   color:var(--primary-600);
   gap:13px;
 }
-
-/* Testimonials */
-.quote{padding:32px 28px;position:relative;overflow:hidden;}
-.quote::before{
-  content:"\201C";
-  position:absolute;top:-14px;right:20px;
-  font-family:Georgia,serif;font-size:7rem;line-height:1;
-  color:var(--primary);opacity:.07;pointer-events:none;
-}
-.quote:hover{transform:translateY(-7px);box-shadow:var(--sh-md);border-color:rgba(37,99,235,.25);}
-.stars{display:flex;gap:3px;color:var(--amber);font-size:.82rem;margin-bottom:16px;}
-.quote p{
-  color:var(--text);font-size:.94rem;line-height:1.78;
-  margin-bottom:24px;font-style:italic;
-}
-.who{display:flex;align-items:center;gap:13px;padding-top:20px;border-top:1px solid var(--line);}
-.who-av{
-  width:46px;height:46px;border-radius:50%;flex-shrink:0;
-  display:grid;place-items:center;color:#fff;
-  font-weight:800;font-size:1rem;letter-spacing:.02em;
-  box-shadow:var(--sh-sm);
-}
-.who-av.a1{background:linear-gradient(135deg,#2563eb,#06b6d4);}
-.who-av.a2{background:linear-gradient(135deg,#8b5cf6,#ec4899);}
-.who-av.a3{background:linear-gradient(135deg,#f59e0b,#ef4444);}
-.who h6{
-  font-size:.93rem;font-weight:800;color:var(--text-strong);
-  margin:0 0 2px;letter-spacing:-.01em;
-}
-.who small{font-size:.79rem;color:var(--muted);display:block;}
 
 /* FAQ */
 .faq-list{max-width:840px;margin:0 auto;display:grid;gap:12px;}
@@ -840,11 +786,11 @@ input,select,textarea{font-family:inherit;}
   color:var(--muted);font-size:.92rem;line-height:1.78;
   padding:0 26px;
 }
-.faq.open .faq-a{max-height:420px;padding:0 26px 24px;}
+.faq.open .faq-a{max-height:440px;padding:0 26px 24px;}
 
 /* CTA */
 .cta{
-  border-radius:var(--r-xl);padding:clamp(34px,5vw,52px);
+  border-radius:var(--r-xl);padding:clamp(32px,5vw,52px);
   position:relative;overflow:hidden;
   background:
     radial-gradient(ellipse 60% 120% at 8% 0%,rgba(6,182,212,.45),transparent 55%),
@@ -859,17 +805,14 @@ input,select,textarea{font-family:inherit;}
 }
 .cta > *{position:relative;z-index:1;}
 .cta h3{
-  font-family:"Plus Jakarta Sans",sans-serif;
-  font-size:clamp(1.35rem,2.6vw,1.9rem);font-weight:800;
+  font-size:clamp(1.3rem,2.6vw,1.85rem);font-weight:800;
   color:#fff;letter-spacing:-.03em;margin-bottom:8px;
 }
 .cta p{color:rgba(255,255,255,.85);font-size:.96rem;margin:0;}
 
-/* Contact / Order */
-.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:34px;align-items:start;}
-
+/* Info Card */
 .info-card{
-  padding:34px 30px;border-radius:var(--r-lg);
+  padding:30px 26px;border-radius:var(--r-lg);
   background:var(--surface);border:1px solid var(--line);
   box-shadow:var(--sh-sm);
 }
@@ -896,12 +839,13 @@ input,select,textarea{font-family:inherit;}
 }
 .info-item a:hover{color:var(--primary);}
 
+/* Form */
 .form-card{
-  padding:36px 32px;border-radius:var(--r-lg);
+  padding:32px 28px;border-radius:var(--r-lg);
   background:var(--surface);border:1px solid var(--line);
   box-shadow:var(--sh-md);
 }
-.seg{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px;}
+.seg{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px;}
 .seg button{
   flex:1 1 160px;padding:12px 18px;border-radius:var(--r-sm);
   border:1.5px solid var(--line);background:var(--surface);
@@ -932,7 +876,7 @@ input,select,textarea{font-family:inherit;}
   border-color:var(--primary);background:var(--surface);
   box-shadow:0 0 0 4px rgba(37,99,235,.13);
 }
-textarea.f-input{resize:vertical;min-height:132px;line-height:1.65;}
+textarea.f-input{resize:vertical;min-height:130px;line-height:1.65;}
 select.f-input{
   appearance:none;-webkit-appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8.5 1.5 4h9z'/%3E%3C/svg%3E");
@@ -954,7 +898,7 @@ select.f-input{
 /* Footer */
 .footer{
   background:#050a16;color:#8fa0b8;
-  padding:76px 0 30px;position:relative;overflow:hidden;
+  padding:70px 0 28px;position:relative;overflow:hidden;
   border-top:1px solid rgba(255,255,255,.06);
 }
 .footer::before{
@@ -964,10 +908,10 @@ select.f-input{
 }
 .f-brand{display:flex;align-items:center;gap:11px;margin-bottom:18px;}
 .f-brand .brand-name{color:#fff;}
-.f-about{color:#8fa0b8;font-size:.91rem;line-height:1.78;max-width:330px;}
+.f-about{color:#8fa0b8;font-size:.91rem;line-height:1.78;max-width:340px;}
 .f-title{
   color:#fff;font-size:.76rem;font-weight:800;
-  letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px;
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px;
 }
 .f-list{list-style:none;padding:0;margin:0;}
 .f-list li{margin-bottom:11px;}
@@ -993,14 +937,14 @@ select.f-input{
   color:#fff;border-color:transparent;transform:translateY(-4px);
   box-shadow:0 14px 26px -12px rgba(37,99,235,.85);
 }
-.f-div{border-color:rgba(255,255,255,.08);margin:46px 0 24px;opacity:1;}
+.f-div{border-color:rgba(255,255,255,.08);margin:42px 0 22px;opacity:1;}
 .f-copy{color:#64748b;font-size:.85rem;margin:0;}
 
 /* Floating */
 .float-wa{
-  position:fixed;bottom:26px;left:26px;z-index:1200;
-  width:58px;height:58px;border-radius:50%;
-  display:grid;place-items:center;font-size:1.55rem;color:#fff;
+  position:fixed;bottom:24px;left:24px;z-index:1200;
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;font-size:1.5rem;color:#fff;
   background:linear-gradient(135deg,var(--wa),var(--wa-600));
   box-shadow:0 14px 30px -10px rgba(37,211,102,.75);
   transition:var(--t);animation:waPulse 2.4s ease-in-out infinite;
@@ -1011,7 +955,7 @@ select.f-input{
   50%{box-shadow:0 14px 30px -10px rgba(37,211,102,.9),0 0 0 10px rgba(37,211,102,.14);}
 }
 .to-top{
-  position:fixed;bottom:26px;right:26px;z-index:1200;
+  position:fixed;bottom:24px;right:24px;z-index:1200;
   width:48px;height:48px;border-radius:50%;border:none;
   display:grid;place-items:center;font-size:.98rem;color:#fff;cursor:pointer;
   background:linear-gradient(135deg,var(--primary),var(--primary-600));
@@ -1027,76 +971,57 @@ select.f-input{
 .rv.in{opacity:1;transform:none;}
 
 /* =========================================================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE TUNING (Bootstrap handles most of it)
    ========================================================= */
-@media (max-width:1399.98px){ :root{--container:1140px;} }
-@media (max-width:1199.98px){
-  :root{--container:1040px;}
-  .nav-links a{padding:9px 12px;font-size:.87rem;}
-}
-@media (max-width:1024px){
-  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}
-  .steps{grid-template-columns:repeat(2,1fr);}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-}
 @media (max-width:991.98px){
-  :root{--container:100%;}
   .nav-links,.nav-actions .btn-wa{display:none;}
   .burger{display:grid;}
-  .nav-bar{padding:9px 9px 9px 16px;}
-  .hero{padding:calc(var(--nav-h) + 52px) 0 72px;text-align:center;}
+  .nav-bar{padding:8px 8px 8px 14px;}
+  .hero{padding:calc(var(--nav-h) + 44px) 0 60px;}
+  .hero .text-lg-start{text-align:center;}
   .hero p.hero-sub{margin-left:auto;margin-right:auto;}
   .hero-cta{justify-content:center;}
   .trust-row{justify-content:center;}
-  .mock{margin-top:44px;max-width:520px;margin-left:auto;margin-right:auto;}
-  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}
-  .steps{grid-template-columns:repeat(2,1fr);}
-  .contact-grid{grid-template-columns:1fr;}
+  .mock{margin-top:36px;max-width:520px;margin-left:auto;margin-right:auto;}
   .price.featured{transform:none;}
   .price.featured:hover{transform:translateY(-8px);}
 }
+
 @media (max-width:767.98px){
   body{font-size:15.5px;}
-  .grid-3,.grid-4,.grid-2,.steps{grid-template-columns:1fr;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:14px;}
-  .hero{padding:calc(var(--nav-h) + 42px) 0 60px;}
-  .hero-cta{gap:11px;}
+  .hero{padding:calc(var(--nav-h) + 34px) 0 50px;}
   .hero-cta .btn{width:100%;}
   .trust-row{flex-direction:column;align-items:center;gap:10px;}
   .mock-body{padding:22px 20px 24px;}
-  .svc,.why,.quote,.step,.price{padding:26px 22px;}
-  .form-card,.info-card{padding:26px 22px;}
+  .mock-thumb,.proj-thumb{height:160px;font-size:2.6rem;}
+  .svc,.why,.step,.price{padding:26px 22px;}
+  .form-card,.info-card{padding:24px 20px;}
   .faq-q{padding:18px 20px;font-size:.93rem;}
   .faq.open .faq-a{padding:0 20px 20px;}
-  .cta{padding:32px 22px;text-align:center;}
-  .cta .btn{margin-top:20px;width:100%;}
-  .float-wa{bottom:18px;left:18px;width:54px;height:54px;font-size:1.4rem;}
+  .cta{padding:30px 22px;text-align:center;}
+  .cta .btn{margin-top:18px;width:100%;}
+  .float-wa{bottom:18px;left:18px;width:52px;height:52px;font-size:1.4rem;}
   .to-top{bottom:18px;right:18px;width:44px;height:44px;}
   .marquee-wrap::before,.marquee-wrap::after{width:60px;}
   .marquee-group{gap:38px;padding-right:38px;}
-  .proj-thumb{height:160px;font-size:2.6rem;}
-  .footer{padding:56px 0 26px;}
+  .footer{padding:52px 0 24px;}
   .f-about{max-width:100%;}
 }
+
 @media (max-width:480px){
   :root{--nav-h:68px;}
-  .container{padding-left:16px;padding-right:16px;}
-  .brand-name{font-size:.95rem;}
+  .brand-name{font-size:.94rem;}
   .brand-mark{width:36px;height:36px;border-radius:11px;font-size:.9rem;}
-  .hero h1{font-size:clamp(1.85rem,8vw,2.5rem);}
-  .h-display{font-size:clamp(1.6rem,7vw,2rem);}
+  .hero h1{font-size:clamp(1.75rem,8vw,2.4rem);}
+  .h-display{font-size:clamp(1.55rem,7vw,2rem);}
   .seg button{flex:1 1 100%;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
   .stat{padding:18px 10px;}
   .stat small{font-size:.76rem;}
   .btn{padding:12px 22px;font-size:.9rem;}
   .btn-lg{padding:13px 24px;font-size:.94rem;}
   .faq-q{font-size:.9rem;padding:16px 18px;}
 }
-@media (max-width:360px){
-  .brand-name{font-size:.88rem;}
-  .stats-grid{grid-template-columns:1fr;}
-}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
     animation-duration:.01ms!important;
@@ -1160,7 +1085,7 @@ select.f-input{
   </a>
 </div>
 
-<!-- ============ HERO ============ -->
+<!-- ============ HERO (Bootstrap Row) ============ -->
 <section id="home" class="hero">
   <span class="blob blob-a"></span>
   <span class="blob blob-b"></span>
@@ -1254,7 +1179,7 @@ select.f-input{
   </div>
 </div>
 
-<!-- ============ SERVICES ============ -->
+<!-- ============ SERVICES (Bootstrap Row/Col) ============ -->
 <section id="services" class="section">
   <div class="container">
     <div class="section-head">
@@ -1263,71 +1188,86 @@ select.f-input{
       <p class="lead-text">We design and develop modern, fast and fully responsive digital products for businesses, creators and individuals.</p>
     </div>
 
-    <div class="grid-3">
-      <article class="card svc">
-        <div class="svc-ico"><i class="fa-solid fa-globe"></i></div>
-        <h4>Business Websites</h4>
-        <p>Company websites, portfolios, landing pages, restaurant, coaching and e-commerce websites.</p>
-        <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
-      </article>
-
-      <article class="card svc">
-        <div class="svc-ico"><i class="fa-solid fa-mobile-screen-button"></i></div>
-        <h4>Web &amp; Mobile Apps</h4>
-        <p>Custom web applications, management systems, booking systems and responsive mobile-first UI.</p>
-        <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
-      </article>
-
-      <article class="card svc">
-        <div class="svc-ico"><i class="fa-solid fa-envelope-open-text"></i></div>
-        <h4>Event &amp; Invitation Pages</h4>
-        <p>Birthday, wedding, anniversary, festival and event invitation pages with beautiful modern design.</p>
-        <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
-      </article>
-
-      <article class="card svc">
-        <div class="svc-ico"><i class="fa-solid fa-robot"></i></div>
-        <h4>AI &amp; Automation</h4>
-        <p>AI-powered solutions, automation scripts, Python tools and API integrations for your business.</p>
-        <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
-      </article>
-
-      <article class="card svc">
-        <div class="svc-ico"><i class="fa-solid fa-cart-shopping"></i></div>
-        <h4>E-commerce Websites</h4>
-        <p>Online stores with product showcase, cart, payment integration and order management.</p>
-        <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
-      </article>
-
-      <article class="card svc">
-        <div class="svc-ico"><i class="fa-solid fa-palette"></i></div>
-        <h4>UI / Web Design</h4>
-        <p>Clean, modern and responsive UI design for websites, apps and landing pages.</p>
-        <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
-      </article>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base svc">
+          <div class="svc-ico"><i class="fa-solid fa-globe"></i></div>
+          <h4>Business Websites</h4>
+          <p>Company websites, portfolios, landing pages, restaurant, coaching and e-commerce websites.</p>
+          <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base svc">
+          <div class="svc-ico"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h4>Web &amp; Mobile Apps</h4>
+          <p>Custom web applications, management systems, booking systems and responsive mobile-first UI.</p>
+          <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base svc">
+          <div class="svc-ico"><i class="fa-solid fa-envelope-open-text"></i></div>
+          <h4>Event &amp; Invitation Pages</h4>
+          <p>Birthday, wedding, anniversary, festival and event invitation pages with beautiful modern design.</p>
+          <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base svc">
+          <div class="svc-ico"><i class="fa-solid fa-robot"></i></div>
+          <h4>AI &amp; Automation</h4>
+          <p>AI-powered solutions, automation scripts, Python tools and API integrations for your business.</p>
+          <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base svc">
+          <div class="svc-ico"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h4>E-commerce Websites</h4>
+          <p>Online stores with product showcase, cart, payment integration and order management.</p>
+          <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base svc">
+          <div class="svc-ico"><i class="fa-solid fa-palette"></i></div>
+          <h4>UI / Web Design</h4>
+          <p>Clean, modern and responsive UI design for websites, apps and landing pages.</p>
+          <a href="#order" class="svc-link">Order Now <i class="fa-solid fa-arrow-right"></i></a>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ STATS ============ -->
+<!-- ============ STATS (Bootstrap Row) ============ -->
 <section class="stats-band">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stat">
-        <b class="counter" id="projectCount" data-target="0" data-suffix="+">0</b>
-        <small>Projects Completed</small>
+    <div class="row g-3 g-md-4">
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <b class="counter" id="projectCount" data-target="0" data-suffix="+">0</b>
+          <small>Projects Completed</small>
+        </div>
       </div>
-      <div class="stat">
-        <b class="counter" id="clientCount" data-target="0" data-suffix="+">0</b>
-        <small>Happy Clients</small>
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <b class="counter" id="clientCount" data-target="0" data-suffix="+">0</b>
+          <small>Happy Clients</small>
+        </div>
       </div>
-      <div class="stat">
-        <b class="counter" data-target="100" data-suffix="%">0</b>
-        <small>Client Satisfaction</small>
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <b class="counter" data-target="100" data-suffix="%">0</b>
+          <small>Client Satisfaction</small>
+        </div>
       </div>
-      <div class="stat">
-        <b class="counter" data-target="24" data-suffix="/7">0</b>
-        <small>Support Available</small>
+      <div class="col-6 col-md-3">
+        <div class="stat">
+          <b class="counter" data-target="24" data-suffix="/7">0</b>
+          <small>Support Available</small>
+        </div>
       </div>
     </div>
   </div>
@@ -1342,37 +1282,49 @@ select.f-input{
       <p class="lead-text">We focus on quality, speed and results that actually help your business grow.</p>
     </div>
 
-    <div class="grid-3">
-      <article class="card why">
-        <div class="why-ico"><i class="fa-solid fa-bolt"></i></div>
-        <h5>Fast Delivery</h5>
-        <p>We deliver most projects within 3–7 days without compromising quality.</p>
-      </article>
-      <article class="card why">
-        <div class="why-ico"><i class="fa-solid fa-mobile-screen"></i></div>
-        <h5>Fully Responsive</h5>
-        <p>Every project works perfectly on mobile, tablet and desktop devices.</p>
-      </article>
-      <article class="card why">
-        <div class="why-ico"><i class="fa-solid fa-shield-halved"></i></div>
-        <h5>Secure &amp; Reliable</h5>
-        <p>Clean code, secure forms and reliable hosting — ready for real business.</p>
-      </article>
-      <article class="card why">
-        <div class="why-ico"><i class="fa-solid fa-headset"></i></div>
-        <h5>24/7 Support</h5>
-        <p>Get support anytime via WhatsApp, email or Instagram after delivery.</p>
-      </article>
-      <article class="card why">
-        <div class="why-ico"><i class="fa-solid fa-wallet"></i></div>
-        <h5>Affordable Pricing</h5>
-        <p>Startup-friendly pricing with flexible packages that fit your budget.</p>
-      </article>
-      <article class="card why">
-        <div class="why-ico"><i class="fa-solid fa-rocket"></i></div>
-        <h5>Modern Tech</h5>
-        <p>Built with the latest web technologies for speed, SEO and performance.</p>
-      </article>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base why">
+          <div class="why-ico"><i class="fa-solid fa-bolt"></i></div>
+          <h5>Fast Delivery</h5>
+          <p>We deliver most projects within 3–7 days without compromising quality.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base why">
+          <div class="why-ico"><i class="fa-solid fa-mobile-screen"></i></div>
+          <h5>Fully Responsive</h5>
+          <p>Every project works perfectly on mobile, tablet and desktop devices.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base why">
+          <div class="why-ico"><i class="fa-solid fa-shield-halved"></i></div>
+          <h5>Secure &amp; Reliable</h5>
+          <p>Clean code, secure forms and reliable hosting — ready for real business.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base why">
+          <div class="why-ico"><i class="fa-solid fa-headset"></i></div>
+          <h5>24/7 Support</h5>
+          <p>Get support anytime via WhatsApp, email or Instagram after delivery.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base why">
+          <div class="why-ico"><i class="fa-solid fa-wallet"></i></div>
+          <h5>Affordable Pricing</h5>
+          <p>Startup-friendly pricing with flexible packages that fit your budget.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="card-base why">
+          <div class="why-ico"><i class="fa-solid fa-rocket"></i></div>
+          <h5>Modern Tech</h5>
+          <p>Built with the latest web technologies for speed, SEO and performance.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -1386,51 +1338,57 @@ select.f-input{
       <p class="lead-text">Choose a plan that fits your needs. Custom quotes available for larger projects.</p>
     </div>
 
-    <div class="grid-3" style="align-items:stretch;">
-      <article class="price">
-        <div class="price-name">Starter</div>
-        <div class="price-amount"><b>₹2,999</b><small>/ project</small></div>
-        <p class="price-desc">Perfect for personal websites, portfolios and landing pages.</p>
-        <ul>
-          <li><i class="fa-solid fa-check"></i> 1–3 Pages Website</li>
-          <li><i class="fa-solid fa-check"></i> Mobile Responsive Design</li>
-          <li><i class="fa-solid fa-check"></i> Contact Form</li>
-          <li><i class="fa-solid fa-check"></i> Basic SEO Setup</li>
-          <li><i class="fa-solid fa-check"></i> 3 Days Delivery</li>
-        </ul>
-        <a href="#order" class="btn btn-ghost btn-block">Order Starter</a>
-      </article>
+    <div class="row g-4 g-lg-4 align-items-stretch">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="price">
+          <div class="price-name">Starter</div>
+          <div class="price-amount"><b>₹2,999</b><small>/ project</small></div>
+          <p class="price-desc">Perfect for personal websites, portfolios and landing pages.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 1–3 Pages Website</li>
+            <li><i class="fa-solid fa-check"></i> Mobile Responsive Design</li>
+            <li><i class="fa-solid fa-check"></i> Contact Form</li>
+            <li><i class="fa-solid fa-check"></i> Basic SEO Setup</li>
+            <li><i class="fa-solid fa-check"></i> 3 Days Delivery</li>
+          </ul>
+          <a href="#order" class="btn btn-ghost btn-block">Order Starter</a>
+        </article>
+      </div>
 
-      <article class="price featured">
-        <span class="price-tag-top">Most Popular</span>
-        <div class="price-name">Business</div>
-        <div class="price-amount"><b>₹9,999</b><small>/ project</small></div>
-        <p class="price-desc">Best for businesses, startups and service providers.</p>
-        <ul>
-          <li><i class="fa-solid fa-check"></i> 5–10 Pages Website</li>
-          <li><i class="fa-solid fa-check"></i> Advanced Responsive Design</li>
-          <li><i class="fa-solid fa-check"></i> Contact + Order Form</li>
-          <li><i class="fa-solid fa-check"></i> Social Media Integration</li>
-          <li><i class="fa-solid fa-check"></i> Basic Admin Panel (optional)</li>
-          <li><i class="fa-solid fa-check"></i> 5–7 Days Delivery</li>
-        </ul>
-        <a href="#order" class="btn btn-grad btn-block">Order Business</a>
-      </article>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="price featured">
+          <span class="price-tag-top">Most Popular</span>
+          <div class="price-name">Business</div>
+          <div class="price-amount"><b>₹9,999</b><small>/ project</small></div>
+          <p class="price-desc">Best for businesses, startups and service providers.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> 5–10 Pages Website</li>
+            <li><i class="fa-solid fa-check"></i> Advanced Responsive Design</li>
+            <li><i class="fa-solid fa-check"></i> Contact + Order Form</li>
+            <li><i class="fa-solid fa-check"></i> Social Media Integration</li>
+            <li><i class="fa-solid fa-check"></i> Basic Admin Panel (optional)</li>
+            <li><i class="fa-solid fa-check"></i> 5–7 Days Delivery</li>
+          </ul>
+          <a href="#order" class="btn btn-grad btn-block">Order Business</a>
+        </article>
+      </div>
 
-      <article class="price">
-        <div class="price-name">Premium</div>
-        <div class="price-amount"><b>₹19,999+</b><small>/ project</small></div>
-        <p class="price-desc">For e-commerce, web apps, AI tools and custom systems.</p>
-        <ul>
-          <li><i class="fa-solid fa-check"></i> Unlimited Pages / Web App</li>
-          <li><i class="fa-solid fa-check"></i> Custom Features &amp; Integrations</li>
-          <li><i class="fa-solid fa-check"></i> Database + Admin Panel</li>
-          <li><i class="fa-solid fa-check"></i> Payment / API Integration</li>
-          <li><i class="fa-solid fa-check"></i> AI / Automation (optional)</li>
-          <li><i class="fa-solid fa-check"></i> Priority Support</li>
-        </ul>
-        <a href="#order" class="btn btn-ghost btn-block">Order Premium</a>
-      </article>
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="price">
+          <div class="price-name">Premium</div>
+          <div class="price-amount"><b>₹19,999+</b><small>/ project</small></div>
+          <p class="price-desc">For e-commerce, web apps, AI tools and custom systems.</p>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> Unlimited Pages / Web App</li>
+            <li><i class="fa-solid fa-check"></i> Custom Features &amp; Integrations</li>
+            <li><i class="fa-solid fa-check"></i> Database + Admin Panel</li>
+            <li><i class="fa-solid fa-check"></i> Payment / API Integration</li>
+            <li><i class="fa-solid fa-check"></i> AI / Automation (optional)</li>
+            <li><i class="fa-solid fa-check"></i> Priority Support</li>
+          </ul>
+          <a href="#order" class="btn btn-ghost btn-block">Order Premium</a>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -1444,36 +1402,44 @@ select.f-input{
       <p class="lead-text">Simple, transparent and fast — from idea to live product.</p>
     </div>
 
-    <div class="steps">
-      <article class="step">
-        <span class="step-n">01</span>
-        <div class="step-ico"><i class="fa-solid fa-comments"></i></div>
-        <h5>Discussion</h5>
-        <p>You share your idea, requirements and goals with us.</p>
-      </article>
-      <article class="step">
-        <span class="step-n">02</span>
-        <div class="step-ico"><i class="fa-solid fa-pen-ruler"></i></div>
-        <h5>Design</h5>
-        <p>We plan the layout and design a clean, modern interface.</p>
-      </article>
-      <article class="step">
-        <span class="step-n">03</span>
-        <div class="step-ico"><i class="fa-solid fa-code"></i></div>
-        <h5>Development</h5>
-        <p>We build it using modern technologies with clean code.</p>
-      </article>
-      <article class="step">
-        <span class="step-n">04</span>
-        <div class="step-ico"><i class="fa-solid fa-rocket"></i></div>
-        <h5>Delivery</h5>
-        <p>We deploy the project live and provide full support.</p>
-      </article>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="step">
+          <span class="step-n">01</span>
+          <div class="step-ico"><i class="fa-solid fa-comments"></i></div>
+          <h5>Discussion</h5>
+          <p>You share your idea, requirements and goals with us.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="step">
+          <span class="step-n">02</span>
+          <div class="step-ico"><i class="fa-solid fa-pen-ruler"></i></div>
+          <h5>Design</h5>
+          <p>We plan the layout and design a clean, modern interface.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="step">
+          <span class="step-n">03</span>
+          <div class="step-ico"><i class="fa-solid fa-code"></i></div>
+          <h5>Development</h5>
+          <p>We build it using modern technologies with clean code.</p>
+        </article>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <article class="step">
+          <span class="step-n">04</span>
+          <div class="step-ico"><i class="fa-solid fa-rocket"></i></div>
+          <h5>Delivery</h5>
+          <p>We deploy the project live and provide full support.</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROJECTS (FULLY RESPONSIVE CSS GRID) ============ -->
+<!-- ============ PROJECTS (Bootstrap Row/Col — fully responsive) ============ -->
 <section id="projects" class="section">
   <div class="container">
     <div class="section-head">
@@ -1482,48 +1448,54 @@ select.f-input{
       <p class="lead-text">Real projects built with modern technologies and clean design.</p>
     </div>
 
-    <div class="projects-grid">
+    <div class="row g-4 mb-5">
+      <div class="col-12 col-md-6">
+        <article class="proj">
+          <div class="proj-thumb"><i class="fa-solid fa-mug-hot"></i></div>
+          <div class="proj-body">
+            <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+            <h5>Cafe Aurora</h5>
+            <p>A modern and elegant cafe website with clean interface, responsive layout and warm cafe-inspired experience.</p>
+            <a href="https://omsagarka07.github.io/Cafe-Aurora/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
 
-      <article class="proj">
-        <div class="proj-thumb"><i class="fa-solid fa-mug-hot"></i></div>
-        <div class="proj-body">
-          <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
-          <h5>Cafe Aurora</h5>
-          <p>A modern and elegant cafe website with clean interface, responsive layout and warm cafe-inspired experience.</p>
-          <a href="https://omsagarka07.github.io/Cafe-Aurora/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
+      <div class="col-12 col-md-6">
+        <article class="proj">
+          <div class="proj-thumb"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <div class="proj-body">
+            <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+            <h5>Mobile Shopping</h5>
+            <p>A modern and responsive mobile shopping website featuring a clean interface and product showcase.</p>
+            <a href="https://omsagarka07.github.io/Mobile-shoping/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
 
-      <article class="proj">
-        <div class="proj-thumb"><i class="fa-solid fa-mobile-screen-button"></i></div>
-        <div class="proj-body">
-          <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
-          <h5>Mobile Shopping</h5>
-          <p>A modern and responsive mobile shopping website featuring a clean interface and product showcase.</p>
-          <a href="https://omsagarka07.github.io/Mobile-shoping/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
+      <div class="col-12 col-md-6">
+        <article class="proj">
+          <div class="proj-thumb"><i class="fa-solid fa-moon"></i></div>
+          <div class="proj-body">
+            <div class="proj-tags"><span>HTML5</span><span>CSS3</span></div>
+            <h5>The Moonlit Cafe</h5>
+            <p>A warm and elegant cafe website with responsive layout, custom styling and relaxing digital cafe experience.</p>
+            <a href="https://omsagarka07.github.io/the-moonlit-cafe/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
 
-      <article class="proj">
-        <div class="proj-thumb"><i class="fa-solid fa-moon"></i></div>
-        <div class="proj-body">
-          <div class="proj-tags"><span>HTML5</span><span>CSS3</span></div>
-          <h5>The Moonlit Cafe</h5>
-          <p>A warm and elegant cafe website with responsive layout, custom styling and relaxing digital cafe experience.</p>
-          <a href="https://omsagarka07.github.io/the-moonlit-cafe/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
-
-      <article class="proj">
-        <div class="proj-thumb"><i class="fa-solid fa-user-tie"></i></div>
-        <div class="proj-body">
-          <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
-          <h5>Personal Portfolio</h5>
-          <p>A modern and responsive personal portfolio website showcasing my skills, projects, learning journey, achievements, and experience as a Computer Engineering student.</p>
-          <a href="https://omsagarka07.github.io/Portfolio/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-        </div>
-      </article>
-
+      <div class="col-12 col-md-6">
+        <article class="proj">
+          <div class="proj-thumb"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="proj-body">
+            <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+            <h5>Personal Portfolio</h5>
+            <p>A modern and responsive personal portfolio website showcasing my skills, projects, learning journey, achievements, and experience as a Computer Engineering student.</p>
+            <a href="https://omsagarka07.github.io/Portfolio/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
     </div>
 
     <div class="text-center">
@@ -1572,7 +1544,7 @@ select.f-input{
   </div>
 </section>
 
-<!-- ============ CTA BANNER ============ -->
+<!-- ============ CTA ============ -->
 <section class="section" style="padding-bottom:0;">
   <div class="container">
     <div class="cta">
@@ -1591,7 +1563,7 @@ select.f-input{
   </div>
 </section>
 
-<!-- ============ ORDER / CONTACT ============ -->
+<!-- ============ ORDER / CONTACT (Bootstrap Grid) ============ -->
 <section id="order" class="section">
   <div class="container">
     <div class="section-head">
@@ -1600,111 +1572,115 @@ select.f-input{
       <p class="lead-text">Fill the form below — choose WhatsApp or Email to send your order. We'll reply within 24 hours.</p>
     </div>
 
-    <div class="contact-grid">
-      <aside class="info-card">
-        <div class="info-item">
-          <div class="info-ico"><i class="fa-brands fa-whatsapp"></i></div>
-          <div><h6>WhatsApp</h6><a href="https://wa.me/919586554421" target="_blank" rel="noopener">+91 95865 54421</a></div>
-        </div>
-        <div class="info-item">
-          <div class="info-ico"><i class="fa-solid fa-envelope"></i></div>
-          <div><h6>Email</h6><a href="mailto:omtechsolutions@gmail.com">omtechsolutions@gmail.com</a></div>
-        </div>
-        <div class="info-item">
-          <div class="info-ico"><i class="fa-brands fa-instagram"></i></div>
-          <div><h6>Instagram</h6><a href="https://instagram.com/om_techsolutions" target="_blank" rel="noopener">@om_techsolutions</a></div>
-        </div>
-        <div class="info-item">
-          <div class="info-ico"><i class="fa-brands fa-github"></i></div>
-          <div><h6>GitHub</h6><a href="https://github.com/omsagarka07" target="_blank" rel="noopener">github.com/omsagarka07</a></div>
-        </div>
-        <div class="info-item">
-          <div class="info-ico"><i class="fa-solid fa-location-dot"></i></div>
-          <div><h6>Location</h6><p>Gujarat, India</p></div>
-        </div>
-      </aside>
+    <div class="row g-4">
+      <div class="col-12 col-lg-5 col-xl-4">
+        <aside class="info-card">
+          <div class="info-item">
+            <div class="info-ico"><i class="fa-brands fa-whatsapp"></i></div>
+            <div><h6>WhatsApp</h6><a href="https://wa.me/919586554421" target="_blank" rel="noopener">+91 95865 54421</a></div>
+          </div>
+          <div class="info-item">
+            <div class="info-ico"><i class="fa-solid fa-envelope"></i></div>
+            <div><h6>Email</h6><a href="mailto:omsagaraka5050@gmail.com">omsagaraka5050@gmail.com</a></div>
+          </div>
+          <div class="info-item">
+            <div class="info-ico"><i class="fa-brands fa-instagram"></i></div>
+            <div><h6>Instagram</h6><a href="https://instagram.com/om_techsolutions" target="_blank" rel="noopener">@om_techsolutions</a></div>
+          </div>
+          <div class="info-item">
+            <div class="info-ico"><i class="fa-brands fa-github"></i></div>
+            <div><h6>GitHub</h6><a href="https://github.com/omsagarka07" target="_blank" rel="noopener">github.com/omsagarka07</a></div>
+          </div>
+          <div class="info-item">
+            <div class="info-ico"><i class="fa-solid fa-location-dot"></i></div>
+            <div><h6>Location</h6><p>Gujarat, India</p></div>
+          </div>
+        </aside>
+      </div>
 
-      <form class="form-card" id="orderForm" novalidate>
-        <div class="seg" id="orderMethods">
-          <button type="button" class="active wa" data-method="whatsapp">
-            <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
-          </button>
-          <button type="button" data-method="email">
-            <i class="fa-solid fa-envelope"></i> Send via Email
-          </button>
-        </div>
-
-        <div class="row g-3">
-          <div class="col-md-6">
-            <label class="f-label" for="ofName">Full Name <span class="req">*</span></label>
-            <input type="text" class="f-input" name="name" id="ofName" placeholder="Your full name" required minlength="2" maxlength="80" />
-          </div>
-          <div class="col-md-6">
-            <label class="f-label" for="ofEmail">Email Address <span class="req">*</span></label>
-            <input type="email" class="f-input" name="email" id="ofEmail" placeholder="you@example.com" required />
-          </div>
-          <div class="col-md-6">
-            <label class="f-label" for="ofPhone">Phone / WhatsApp</label>
-            <input type="tel" class="f-input" name="phone" id="ofPhone" placeholder="+91 98765 43210" />
-          </div>
-          <div class="col-md-6">
-            <label class="f-label" for="ofService">Service Needed</label>
-            <select class="f-input" name="service" id="ofService">
-              <option value="Business Website">Business Website</option>
-              <option value="Portfolio Website">Portfolio Website</option>
-              <option value="E-commerce Website">E-commerce Website</option>
-              <option value="Web Application">Web Application</option>
-              <option value="Event / Invitation Page">Event / Invitation Page</option>
-              <option value="AI &amp; Automation">AI &amp; Automation</option>
-              <option value="UI / Web Design">UI / Web Design</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label class="f-label" for="ofBudget">Budget Range</label>
-            <select class="f-input" name="budget" id="ofBudget">
-              <option value="Not specified">Not specified</option>
-              <option value="Under ₹3,000">Under ₹3,000</option>
-              <option value="₹3,000 - ₹10,000">₹3,000 - ₹10,000</option>
-              <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000</option>
-              <option value="₹25,000+">₹25,000+</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label class="f-label" for="ofTimeline">Timeline</label>
-            <select class="f-input" name="timeline" id="ofTimeline">
-              <option value="Flexible">Flexible</option>
-              <option value="Urgent (1 week)">Urgent (1 week)</option>
-              <option value="2-4 weeks">2-4 weeks</option>
-              <option value="1-2 months">1-2 months</option>
-            </select>
-          </div>
-          <div class="col-12">
-            <label class="f-label" for="ofMessage">Project Details <span class="req">*</span></label>
-            <textarea class="f-input" name="message" id="ofMessage" rows="5" placeholder="Tell us about your project, features you need, and any reference website..." required minlength="10" maxlength="2000"></textarea>
-          </div>
-
-          <input type="text" name="website" id="ofWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-          <div class="col-12">
-            <button type="submit" class="btn btn-wa btn-lg btn-block" id="ofSubmit">
-              <span class="btn-text"><i class="fa-brands fa-whatsapp"></i> Send Order via WhatsApp</span>
+      <div class="col-12 col-lg-7 col-xl-8">
+        <form class="form-card" id="orderForm" novalidate>
+          <div class="seg" id="orderMethods">
+            <button type="button" class="active wa" data-method="whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+            </button>
+            <button type="button" data-method="email">
+              <i class="fa-solid fa-envelope"></i> Send via Email
             </button>
           </div>
-          <div class="col-12">
-            <div id="ofStatus" class="f-status" role="alert" aria-live="polite"></div>
+
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="f-label" for="ofName">Full Name <span class="req">*</span></label>
+              <input type="text" class="f-input" name="name" id="ofName" placeholder="Your full name" required minlength="2" maxlength="80" />
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="f-label" for="ofEmail">Email Address <span class="req">*</span></label>
+              <input type="email" class="f-input" name="email" id="ofEmail" placeholder="you@example.com" required />
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="f-label" for="ofPhone">Phone / WhatsApp</label>
+              <input type="tel" class="f-input" name="phone" id="ofPhone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="f-label" for="ofService">Service Needed</label>
+              <select class="f-input" name="service" id="ofService">
+                <option value="Business Website">Business Website</option>
+                <option value="Portfolio Website">Portfolio Website</option>
+                <option value="E-commerce Website">E-commerce Website</option>
+                <option value="Web Application">Web Application</option>
+                <option value="Event / Invitation Page">Event / Invitation Page</option>
+                <option value="AI &amp; Automation">AI &amp; Automation</option>
+                <option value="UI / Web Design">UI / Web Design</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="f-label" for="ofBudget">Budget Range</label>
+              <select class="f-input" name="budget" id="ofBudget">
+                <option value="Not specified">Not specified</option>
+                <option value="Under ₹3,000">Under ₹3,000</option>
+                <option value="₹3,000 - ₹10,000">₹3,000 - ₹10,000</option>
+                <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000</option>
+                <option value="₹25,000+">₹25,000+</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="f-label" for="ofTimeline">Timeline</label>
+              <select class="f-input" name="timeline" id="ofTimeline">
+                <option value="Flexible">Flexible</option>
+                <option value="Urgent (1 week)">Urgent (1 week)</option>
+                <option value="2-4 weeks">2-4 weeks</option>
+                <option value="1-2 months">1-2 months</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="f-label" for="ofMessage">Project Details <span class="req">*</span></label>
+              <textarea class="f-input" name="message" id="ofMessage" rows="5" placeholder="Tell us about your project, features you need, and any reference website..." required minlength="10" maxlength="2000"></textarea>
+            </div>
+
+            <input type="text" name="website" id="ofWebsite" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-wa btn-lg btn-block" id="ofSubmit">
+                <span class="btn-text"><i class="fa-brands fa-whatsapp"></i> Send Order via WhatsApp</span>
+              </button>
+            </div>
+            <div class="col-12">
+              <div id="ofStatus" class="f-status" role="alert" aria-live="polite"></div>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER (Bootstrap) ============ -->
 <footer class="footer">
   <div class="container">
     <div class="row gy-4">
-      <div class="col-lg-4">
+      <div class="col-12 col-lg-4">
         <div class="f-brand">
           <span class="brand-mark"><i class="fa-solid fa-code"></i></span>
           <span class="brand-name">OM <span class="grad-text">Tech Solutions</span></span>
@@ -1714,7 +1690,7 @@ select.f-input{
           <a href="https://github.com/omsagarka07" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
           <a href="https://instagram.com/om_techsolutions" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://wa.me/919586554421" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-          <a href="mailto:omtechsolutions@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="mailto:omsagaraka5050@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
 
@@ -1738,7 +1714,7 @@ select.f-input{
         </ul>
       </div>
 
-      <div class="col-lg-4">
+      <div class="col-12 col-lg-4">
         <h6 class="f-title">Get Started</h6>
         <p class="f-about" style="margin-bottom:18px;">Ready to build your dream project? Message us on WhatsApp for instant reply.</p>
         <a href="https://wa.me/919586554421?text=Hi%20OM%20Tech%20Solutions" target="_blank" rel="noopener" class="btn btn-wa btn-sm">
@@ -1762,8 +1738,6 @@ select.f-input{
 </a>
 <button id="scrollTop" class="to-top" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1774,76 +1748,42 @@ select.f-input{
 (function(){
   "use strict";
 
-  /* ---------- CONFIG ---------- */
+  const COMPANY_EMAIL  = "omsagaraka5050@gmail.com";
+  const WEB3FORMS_KEY  = "";
   const WHATSAPP_NUMBER = "919586554421";
-  const COMPANY_EMAIL   = "omtechsolutions@gmail.com";
 
-  /* EmailJS (optional) — fill these in to enable direct email sending */
-  const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
-  const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-
-  const emailjsReady =
-    EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY" &&
-    EMAILJS_SERVICE_ID !== "YOUR_SERVICE_ID" &&
-    EMAILJS_TEMPLATE_ID !== "YOUR_TEMPLATE_ID";
-
-  if (window.emailjs && emailjsReady) {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-  }
-
-  /* =========================================================
-     DYNAMIC PROJECT & CLIENT COUNTER (localStorage)
-     ========================================================= */
+  /* ---------- COUNTERS ---------- */
   const PROJECT_KEY = "om-project-count";
   const CLIENT_KEY  = "om-client-count";
-
-  function readCount(key){
-    const v = parseInt(localStorage.getItem(key) || "0", 10);
-    return isNaN(v) ? 0 : v;
-  }
-  function writeCount(key, val){
-    localStorage.setItem(key, String(val));
-  }
+  const readCount = (k)=>{const v=parseInt(localStorage.getItem(k)||"0",10);return isNaN(v)?0:v;};
+  const writeCount = (k,v)=>localStorage.setItem(k,String(v));
 
   const projectCountEl = document.getElementById("projectCount");
   const clientCountEl  = document.getElementById("clientCount");
   const happyClientsTx = document.getElementById("happyClientsText");
 
   function renderCounts(){
-    const p = readCount(PROJECT_KEY);
-    const c = readCount(CLIENT_KEY);
-
-    if (projectCountEl) {
-      projectCountEl.dataset.target = p;
-      projectCountEl.textContent = p + "+";
-    }
-    if (clientCountEl) {
-      clientCountEl.dataset.target = c;
-      clientCountEl.textContent = c + "+";
-    }
-    if (happyClientsTx) {
-      happyClientsTx.textContent = c + "+ happy clients";
-    }
+    const p = readCount(PROJECT_KEY), c = readCount(CLIENT_KEY);
+    if (projectCountEl) { projectCountEl.dataset.target = p; projectCountEl.textContent = p + "+"; }
+    if (clientCountEl)  { clientCountEl.dataset.target = c;  clientCountEl.textContent  = c + "+"; }
+    if (happyClientsTx) { happyClientsTx.textContent = c + "+ happy clients"; }
   }
-
   renderCounts();
-
   function incrementCounters(){
-    writeCount(PROJECT_KEY, readCount(PROJECT_KEY) + 1);
-    writeCount(CLIENT_KEY,  readCount(CLIENT_KEY)  + 1);
+    writeCount(PROJECT_KEY, readCount(PROJECT_KEY)+1);
+    writeCount(CLIENT_KEY,  readCount(CLIENT_KEY)+1);
     renderCounts();
   }
 
   /* ---------- ELEMENTS ---------- */
-  const progressBar = document.getElementById("scrollProgress");
-  const navShell    = document.getElementById("navShell");
-  const scrollTopBtn= document.getElementById("scrollTop");
-  const burger      = document.getElementById("burger");
-  const mobileMenu  = document.getElementById("mobileMenu");
-  const themeToggle = document.getElementById("themeToggle");
-  const themeIcon   = themeToggle.querySelector("i");
-  const root        = document.documentElement;
+  const progressBar  = document.getElementById("scrollProgress");
+  const navShell     = document.getElementById("navShell");
+  const scrollTopBtn = document.getElementById("scrollTop");
+  const burger       = document.getElementById("burger");
+  const mobileMenu   = document.getElementById("mobileMenu");
+  const themeToggle  = document.getElementById("themeToggle");
+  const themeIcon    = themeToggle.querySelector("i");
+  const root         = document.documentElement;
 
   /* ---------- SCROLL ---------- */
   function onScroll(){
@@ -1854,14 +1794,10 @@ select.f-input{
     scrollTopBtn.classList.toggle("show", y > 420);
     setActiveLink();
   }
-
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
-      window.requestAnimationFrame(() => {
-        onScroll();
-        ticking = false;
-      });
+      window.requestAnimationFrame(() => { onScroll(); ticking = false; });
       ticking = true;
     }
   }, { passive:true });
@@ -1884,23 +1820,15 @@ select.f-input{
     burger.setAttribute("aria-expanded", "false");
     burger.innerHTML = '<i class="fa-solid fa-bars"></i>';
   }
-
   burger.addEventListener("click", () => {
     const open = mobileMenu.classList.toggle("open");
     burger.setAttribute("aria-expanded", open ? "true" : "false");
-    burger.innerHTML = open
-      ? '<i class="fa-solid fa-xmark"></i>'
-      : '<i class="fa-solid fa-bars"></i>';
+    burger.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
   });
-
   document.addEventListener("click", (e) => {
-    if (
-      mobileMenu.classList.contains("open") &&
-      !mobileMenu.contains(e.target) &&
-      !burger.contains(e.target)
-    ) {
-      closeMobileMenu();
-    }
+    if (mobileMenu.classList.contains("open") &&
+        !mobileMenu.contains(e.target) &&
+        !burger.contains(e.target)) closeMobileMenu();
   });
 
   /* ---------- SMOOTH SCROLL ---------- */
@@ -1910,16 +1838,14 @@ select.f-input{
       if (!id || id === "#" || id.length < 2) return;
       const target = document.querySelector(id);
       if (!target) return;
-
       e.preventDefault();
       closeMobileMenu();
-
       const top = target.getBoundingClientRect().top + window.pageYOffset - 92;
       window.scrollTo({ top, behavior: "smooth" });
     });
   });
 
-  /* ---------- ACTIVE NAV LINK ---------- */
+  /* ---------- ACTIVE NAV ---------- */
   const sections = Array.from(document.querySelectorAll("section[id]"));
   const navLinks = Array.from(document.querySelectorAll("#navLinks a"));
   const mobLinks = Array.from(document.querySelectorAll("#mobileMenu a[href^='#']"));
@@ -1927,24 +1853,16 @@ select.f-input{
   function setActiveLink(){
     const pos = window.scrollY + 150;
     let current = "home";
-
     sections.forEach((sec) => {
-      if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
-        current = sec.id;
-      }
+      if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) current = sec.id;
     });
-
-    navLinks.forEach((a) =>
-      a.classList.toggle("active", a.getAttribute("href") === "#" + current)
-    );
-    mobLinks.forEach((a) =>
-      a.classList.toggle("active", a.getAttribute("href") === "#" + current)
-    );
+    navLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
+    mobLinks.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
   }
 
-  /* ---------- REVEAL ON SCROLL ---------- */
+  /* ---------- REVEAL ---------- */
   const revealEls = document.querySelectorAll(
-    ".section-head, .svc, .why, .price, .step, .proj, .quote, .faq, .info-card, .form-card, .stat, .mock, .cta"
+    ".section-head, .svc, .why, .price, .step, .proj, .faq, .info-card, .form-card, .stat, .mock, .cta"
   );
   revealEls.forEach((el) => el.classList.add("rv"));
 
@@ -1965,14 +1883,13 @@ select.f-input{
     revealEls.forEach((el) => el.classList.add("in"));
   }
 
-  /* ---------- COUNTERS (static only) ---------- */
+  /* ---------- COUNTERS ---------- */
   function animateCounter(el){
     const target = parseInt(el.dataset.target, 10);
     if (isNaN(target)) return;
     const suffix = el.dataset.suffix || "+";
-    const dur    = 1400;
-    const start  = performance.now();
-
+    const dur = 1400;
+    const start = performance.now();
     const tick = (now) => {
       const p = Math.min((now - start) / dur, 1);
       const eased = 1 - Math.pow(1 - p, 3);
@@ -1981,11 +1898,9 @@ select.f-input{
     };
     requestAnimationFrame(tick);
   }
-
   const staticCounters = Array.from(document.querySelectorAll(".counter")).filter(
     (el) => el.id !== "projectCount" && el.id !== "clientCount"
   );
-
   if ("IntersectionObserver" in window) {
     const counterObs = new IntersectionObserver(
       (entries, obs) => {
@@ -2011,12 +1926,8 @@ select.f-input{
     });
   });
 
-  /* ---------- SCROLL TOP ---------- */
-  scrollTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
-  /* ---------- YEAR ---------- */
+  /* ---------- SCROLL TOP + YEAR ---------- */
+  scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   document.getElementById("year").textContent = new Date().getFullYear();
 
   /* ---------- ORDER METHOD TOGGLE ---------- */
@@ -2029,7 +1940,6 @@ select.f-input{
       document.querySelectorAll(".seg button").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       orderMethod = btn.dataset.method;
-
       if (orderMethod === "whatsapp") {
         submitBtn.className = "btn btn-wa btn-lg btn-block";
         btnText.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Send Order via WhatsApp';
@@ -2039,6 +1949,146 @@ select.f-input{
       }
     });
   });
+
+  /* ---------- DATE FORMAT ---------- */
+  function getFormattedDateTime(){
+    const now = new Date();
+    const date = now.toLocaleDateString("en-IN", { weekday:"short", day:"2-digit", month:"short", year:"numeric" });
+    const time = now.toLocaleTimeString("en-IN", { hour:"2-digit", minute:"2-digit", hour12:true });
+    return date + "  •  " + time;
+  }
+
+  /* ---------- WHATSAPP FORMAT ---------- */
+  function buildWhatsAppMessage(p){
+    const d = "━━━━━━━━━━━━━━━━━━━━━";
+    return [
+      "🚀 *NEW PROJECT ORDER*",
+      "_OM Tech Solutions_",
+      "",
+      d,
+      "👤 *CLIENT DETAILS*",
+      d,
+      "",
+      "▸ *Name:*  " + p.name,
+      "▸ *Email:*  " + p.email,
+      "▸ *Phone:*  " + (p.phone || "Not provided"),
+      "",
+      d,
+      "📦 *PROJECT INFO*",
+      d,
+      "",
+      "▸ *Service:*   " + p.service,
+      "▸ *Budget:*    " + p.budget,
+      "▸ *Timeline:*  " + p.timeline,
+      "",
+      d,
+      "📝 *PROJECT DETAILS*",
+      d,
+      "",
+      p.message,
+      "",
+      d,
+      "🕐 *Received:*  " + p.sent_at,
+      "🌐 *Source:*  omtechsolutions.dev",
+      d,
+      "",
+      "✅ Please reply within 24 hours."
+    ].join("\n");
+  }
+
+  /* ---------- EMAIL: Web3Forms ---------- */
+  async function sendEmailWeb3Forms(p){
+    if (!WEB3FORMS_KEY) return { ok:false, reason:"no-key" };
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json","Accept":"application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: "🚀 New Order — " + p.service + " — " + p.name,
+          from_name: "OM Tech Solutions Website",
+          replyto: p.email,
+          "Client Name": p.name,
+          "Client Email": p.email,
+          "Client Phone": p.phone || "Not provided",
+          "Service Requested": p.service,
+          "Budget Range": p.budget,
+          "Timeline": p.timeline,
+          "Project Details": p.message,
+          "Submitted At": p.sent_at,
+          "Source": "omtechsolutions.dev — Website Order Form"
+        })
+      });
+      const data = await res.json();
+      if (res.ok && data && data.success) return { ok:true, provider:"web3forms" };
+      return { ok:false, reason:(data && data.message) || "web3forms-failed" };
+    } catch (err) { return { ok:false, reason:"web3forms-network" }; }
+  }
+
+  /* ---------- EMAIL: FormSubmit ---------- */
+  async function sendEmailFormSubmit(p){
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/" + COMPANY_EMAIL, {
+        method:"POST",
+        headers:{ "Content-Type":"application/json","Accept":"application/json" },
+        body: JSON.stringify({
+          _subject: "🚀 New Order — " + p.service + " — " + p.name,
+          _template: "table",
+          _captcha: "false",
+          _replyto: p.email,
+          "👤 Client Name":     p.name,
+          "📧 Email Address":    p.email,
+          "📱 Phone / WhatsApp": p.phone || "Not provided",
+          "📦 Service Needed":   p.service,
+          "💰 Budget Range":     p.budget,
+          "⏱️ Timeline":         p.timeline,
+          "📝 Project Details":  p.message,
+          "🕐 Submitted At":     p.sent_at,
+          "🌐 Source":           "omtechsolutions.dev — Website Order Form"
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) return { ok:true, provider:"formsubmit", data };
+      return { ok:false, reason:"formsubmit-failed", data };
+    } catch (err) { return { ok:false, reason:"formsubmit-network" }; }
+  }
+
+  /* ---------- MAILTO FALLBACK ---------- */
+  function openMailto(p){
+    const d = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
+    const body = [
+      "🚀  NEW PROJECT ORDER — OM Tech Solutions",
+      d, "",
+      "👤  CLIENT DETAILS",
+      d,
+      "  ▸ Name     :  " + p.name,
+      "  ▸ Email    :  " + p.email,
+      "  ▸ Phone    :  " + (p.phone || "Not provided"),
+      "",
+      d,
+      "📦  PROJECT INFO",
+      d,
+      "  ▸ Service  :  " + p.service,
+      "  ▸ Budget   :  " + p.budget,
+      "  ▸ Timeline :  " + p.timeline,
+      "",
+      d,
+      "📝  PROJECT DETAILS",
+      d, "",
+      p.message,
+      "",
+      d,
+      "🕐  Received :  " + p.sent_at,
+      "🌐  Source   :  omtechsolutions.dev",
+      d, "",
+      "✅  Please reply within 24 hours."
+    ].join("\r\n");
+
+    const url = "mailto:" + COMPANY_EMAIL +
+      "?subject=" + encodeURIComponent("🚀 New Order: " + p.service + " — " + p.name) +
+      "&body=" + encodeURIComponent(body);
+    window.location.href = url;
+  }
 
   /* ---------- ORDER FORM ---------- */
   const orderForm = document.getElementById("orderForm");
@@ -2052,10 +2102,7 @@ select.f-input{
   orderForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    if (document.getElementById("ofWebsite").value) {
-      showStatus("Spam detected.", "error");
-      return;
-    }
+    if (document.getElementById("ofWebsite").value) { showStatus("Spam detected.", "error"); return; }
 
     const name     = document.getElementById("ofName").value.trim();
     const email    = document.getElementById("ofEmail").value.trim();
@@ -2065,36 +2112,15 @@ select.f-input{
     const timeline = document.getElementById("ofTimeline").value;
     const message  = document.getElementById("ofMessage").value.trim();
 
-    if (name.length < 2) {
-      showStatus("Please enter your full name (min 2 characters).", "error");
-      return;
-    }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showStatus("Please enter a valid email address.", "error");
-      return;
-    }
-    if (message.length < 10) {
-      showStatus("Please describe your project (min 10 characters).", "error");
-      return;
-    }
+    if (name.length < 2) { showStatus("Please enter your full name (min 2 characters).", "error"); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showStatus("Please enter a valid email address.", "error"); return; }
+    if (message.length < 10) { showStatus("Please describe your project (min 10 characters).", "error"); return; }
 
-    const lines = [
-      "New Project Order — OM Tech Solutions",
-      "------------------------------",
-      "Name: " + name,
-      "Email: " + email,
-      "Phone: " + (phone || "Not provided"),
-      "Service: " + service,
-      "Budget: " + budget,
-      "Timeline: " + timeline,
-      "",
-      "Project Details:",
-      message
-    ];
+    const payload = { name, email, phone, service, budget, timeline, message, sent_at: getFormattedDateTime() };
 
-    /* ---- WHATSAPP ---- */
+    /* WHATSAPP */
     if (orderMethod === "whatsapp") {
-      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(buildWhatsAppMessage(payload));
       window.open(url, "_blank");
       showStatus("✅ Opening WhatsApp… If it doesn't open, message us directly at +" + WHATSAPP_NUMBER, "success");
       incrementCounters();
@@ -2102,42 +2128,31 @@ select.f-input{
       return;
     }
 
-    /* ---- EMAIL (mailto fallback) ---- */
-    if (!emailjsReady) {
-      const body = lines.join("\r\n");
-      const mailto = "mailto:" + COMPANY_EMAIL +
-        "?subject=" + encodeURIComponent("New Order: " + service) +
-        "&body=" + encodeURIComponent(body);
-      window.location.href = mailto;
-      showStatus("✅ Opening your email app… If nothing opens, email us directly at " + COMPANY_EMAIL, "success");
-      incrementCounters();
-      setTimeout(() => orderForm.reset(), 900);
-      return;
-    }
-
-    /* ---- EMAIL via EmailJS ---- */
+    /* EMAIL */
     submitBtn.disabled = true;
     const original = btnText.innerHTML;
     btnText.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
 
     try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        from_name: name,
-        from_email: email,
-        phone: phone || "Not provided",
-        service: service,
-        budget: budget,
-        timeline: timeline,
-        message: message,
-        to_email: COMPANY_EMAIL,
-        sent_at: new Date().toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" })
-      });
-      showStatus("✅ Thank you " + name + "! Your order has been sent. We'll reply within 24 hours.", "success");
-      incrementCounters();
-      orderForm.reset();
+      let result = await sendEmailWeb3Forms(payload);
+      if (!result.ok) result = await sendEmailFormSubmit(payload);
+
+      if (result.ok) {
+        showStatus("✅ Thank you " + name + "! Your order has been sent. We'll reply within 24 hours." +
+          (result.provider === "formsubmit" ? " (First time only: check " + COMPANY_EMAIL + " and click the activation link.)" : ""),
+          "success");
+        incrementCounters();
+        orderForm.reset();
+      } else {
+        openMailto(payload);
+        showStatus("✅ Opening your email app… If nothing opens, email us directly at " + COMPANY_EMAIL, "success");
+        incrementCounters();
+        setTimeout(() => orderForm.reset(), 900);
+      }
     } catch (err) {
-      console.error("EmailJS Error:", err);
-      showStatus("❌ Something went wrong. Please try again or use WhatsApp.", "error");
+      console.error("Email send error:", err);
+      openMailto(payload);
+      showStatus("⚠️ Could not send automatically — opening your email app instead. You can also WhatsApp us at +" + WHATSAPP_NUMBER, "error");
     } finally {
       submitBtn.disabled = false;
       btnText.innerHTML = original;
@@ -2149,9 +2164,7 @@ select.f-input{
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener("input", () => {
-      if (ofStatus.classList.contains("show")) {
-        ofStatus.className = "f-status";
-      }
+      if (ofStatus.classList.contains("show")) ofStatus.className = "f-status";
     });
   });
 
