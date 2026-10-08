@@ -727,7 +727,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
 
 <script>
 /* =========================================================
-   OM TECH SOLUTIONS — MAIN SCRIPT (v6 — Beautiful Emails & WA)
+   OM TECH SOLUTIONS — MAIN SCRIPT (v7 — Beautiful Email & WA)
    ========================================================= */
 (function(){
   "use strict";
@@ -737,15 +737,19 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
   const COMPANY_EMAIL   = "omsagaraka5050@gmail.com";
   const WEB3FORMS_KEY   = "f732de2e-577c-4793-affb-5c37182d6c15";
   const WHATSAPP_NUMBER = "919586554421";
+
+  /* CallMeBot — owner auto WhatsApp notify (optional) */
   const CALLMEBOT_PHONE  = "919586554421";
   const CALLMEBOT_APIKEY = "";
 
-  /* CounterAPI */
+  /* CounterAPI — server-side counter */
   const COUNTER_NS  = "omtechsolutions-omsagarka";
   const COUNTER_KEY = "total-orders";
   let   counterBase = 25;
 
-  /* 🔢 COUNTERS */
+  /* =========================================================
+     🔢 COUNTERS (Server-side, બધા users માટે same)
+     ========================================================= */
   const projectCountEl = document.getElementById("projectCount");
   const clientCountEl  = document.getElementById("clientCount");
   const happyClientsTx = document.getElementById("happyClientsText");
@@ -783,7 +787,9 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
     }
   }
 
-  /* 📲 CALLMEBOT */
+  /* =========================================================
+     📲 CALLMEBOT — owner auto WhatsApp
+     ========================================================= */
   function notifyOwnerWhatsApp(p){
     if (!CALLMEBOT_APIKEY) return;
     const text = [
@@ -805,7 +811,9 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
     fetch(url, { mode:"no-cors" }).catch(()=>{});
   }
 
-  /* 🎨 ELEMENTS */
+  /* =========================================================
+     🎨 ELEMENTS
+     ========================================================= */
   const progressBar  = document.getElementById("scrollProgress");
   const navShell     = document.getElementById("navShell");
   const scrollTopBtn = document.getElementById("scrollTop");
@@ -972,7 +980,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
     });
   });
 
-  /* 🕐 DATE */
+  /* 🕐 DATE FORMAT */
   function getFormattedDateTime(){
     const now = new Date();
     const date = now.toLocaleDateString("en-IN", { weekday:"long", day:"2-digit", month:"long", year:"numeric" });
@@ -981,8 +989,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
   }
 
   /* =========================================================
-     💬 WHATSAPP MESSAGE — Beautiful WhatsApp Formatting
-     *bold*   _italic_   ~strike~   ```code```
+     💬 WHATSAPP MESSAGE — Beautiful Box Design
      ========================================================= */
   function buildWhatsAppMessage(p){
     const L = "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬";
@@ -1020,7 +1027,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
   }
 
   /* =========================================================
-     📧 EMAIL — Beautiful HTML (Bootstrap-like, inline CSS)
+     📧 EMAIL — Beautiful HTML
      ========================================================= */
   function buildEmailHTML(p){
     const esc = (s) => String(s || "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
@@ -1045,6 +1052,8 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
         </td>
       </tr>`;
 
+    const phoneClean = String(p.phone || "").replace(/\D/g, "");
+
     return `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
@@ -1053,22 +1062,19 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border-radius:20px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(15,23,42,.25);">
 
-        <!-- HEADER -->
         <tr><td style="background:linear-gradient(135deg,#1e40af 0%,#2563eb 45%,#06b6d4 100%);padding:36px 32px;text-align:center;color:#ffffff;">
           <div style="font-size:44px;line-height:1;margin-bottom:8px;">🚀</div>
-          <h1 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-.5px;">New Project Order</h1>
-          <p style="margin:8px 0 0;font-size:14px;opacity:.9;letter-spacing:.5px;">OM Tech Solutions</p>
+          <h1 style="margin:0;font-size:24px;font-weight:800;letter-spacing:-.5px;color:#ffffff;">New Project Order</h1>
+          <p style="margin:8px 0 0;font-size:14px;opacity:.9;letter-spacing:.5px;color:#e0f2fe;">OM Tech Solutions</p>
         </td></tr>
 
-        <!-- BADGE -->
-        <tr><td style="padding:0;text-align:center;">
+        <tr><td style="padding:0;text-align:center;background:#ffffff;">
           <div style="display:inline-block;background:#dcfce7;color:#15803d;font-size:12px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:8px 20px;border-radius:999px;margin:-14px auto 0;position:relative;top:-14px;border:3px solid #ffffff;box-shadow:0 4px 12px rgba(34,197,94,.15);">
             ● Just Received
           </div>
         </td></tr>
 
-        <!-- CLIENT DETAILS -->
-        <tr><td style="padding:24px 32px 8px;">
+        <tr><td style="padding:24px 32px 8px;background:#ffffff;">
           <h2 style="margin:0 0 12px;font-size:15px;font-weight:800;color:#2563eb;letter-spacing:.5px;text-transform:uppercase;">
             👤 Client Details
           </h2>
@@ -1077,8 +1083,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
           </table>
         </td></tr>
 
-        <!-- PROJECT INFO -->
-        <tr><td style="padding:24px 32px 8px;">
+        <tr><td style="padding:24px 32px 8px;background:#ffffff;">
           <h2 style="margin:0 0 12px;font-size:15px;font-weight:800;color:#2563eb;letter-spacing:.5px;text-transform:uppercase;">
             📦 Project Information
           </h2>
@@ -1087,8 +1092,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
           </table>
         </td></tr>
 
-        <!-- MESSAGE -->
-        <tr><td style="padding:24px 32px 8px;">
+        <tr><td style="padding:24px 32px 8px;background:#ffffff;">
           <h2 style="margin:0 0 12px;font-size:15px;font-weight:800;color:#2563eb;letter-spacing:.5px;text-transform:uppercase;">
             📝 Project Details
           </h2>
@@ -1097,8 +1101,7 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
           </div>
         </td></tr>
 
-        <!-- META -->
-        <tr><td style="padding:24px 32px 8px;">
+        <tr><td style="padding:24px 32px 8px;background:#ffffff;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#eff6ff,#ecfeff);border:1px solid #bfdbfe;border-radius:14px;">
             <tr>
               <td style="padding:16px 20px;font-size:13px;color:#1e40af;font-weight:600;">
@@ -1109,21 +1112,17 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
           </table>
         </td></tr>
 
-        <!-- CTA -->
-        <tr><td style="padding:28px 32px 12px;text-align:center;">
-          <a href="https://wa.me/${esc(p.phone ? p.phone.replace(/\\D/g,"") : "")}?text=${encodeURIComponent("Hi " + p.name + ", thanks for your order at OM Tech Solutions!")}"
+        <tr><td style="padding:28px 32px 12px;text-align:center;background:#ffffff;">
+          ${phoneClean ? `<a href="https://wa.me/${esc(phoneClean)}?text=${encodeURIComponent("Hi " + p.name + ", thanks for your order at OM Tech Solutions!")}"
              style="display:inline-block;background:linear-gradient(135deg,#25d366,#128c7e);color:#ffffff;font-size:15px;font-weight:700;padding:14px 32px;border-radius:999px;text-decoration:none;box-shadow:0 12px 26px -10px rgba(37,211,102,.6);">
             💬 Reply on WhatsApp
+          </a><br><br>` : ""}
+          <a href="mailto:${esc(p.email)}?subject=${encodeURIComponent("Re: Your Order — OM Tech Solutions")}"
+             style="display:inline-block;background:#2563eb;color:#ffffff;font-size:14px;font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;box-shadow:0 12px 26px -10px rgba(37,99,235,.6);">
+            ✉️ Reply by Email
           </a>
-          <div style="margin-top:14px;">
-            <a href="mailto:${esc(p.email)}?subject=${encodeURIComponent("Re: Your Order — OM Tech Solutions")}"
-               style="display:inline-block;background:#2563eb;color:#ffffff;font-size:14px;font-weight:700;padding:12px 28px;border-radius:999px;text-decoration:none;box-shadow:0 12px 26px -10px rgba(37,99,235,.6);">
-              ✉️ Reply by Email
-            </a>
-          </div>
         </td></tr>
 
-        <!-- FOOTER -->
         <tr><td style="background:#0f172a;padding:24px 32px;text-align:center;color:#94a3b8;font-size:12px;line-height:1.7;">
           <div style="color:#ffffff;font-weight:800;font-size:14px;margin-bottom:4px;">OM Tech Solutions</div>
           <div>Websites • Apps • AI • Event Pages</div>
@@ -1144,7 +1143,9 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
 </html>`;
   }
 
-  /* 📧 EMAIL — Web3Forms with HTML body */
+  /* =========================================================
+     📧 EMAIL SEND — Web3Forms with HTML body
+     ========================================================= */
   async function sendEmailWeb3Forms(p){
     try {
       const fd = new FormData();
@@ -1161,8 +1162,6 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
       fd.append("message", p.message);
       fd.append("sent_at", p.sent_at);
       fd.append("source", SITE_URL + " — Website Order Form");
-
-      /* ✅ Beautiful HTML email body (Web3Forms ઘણીવાર HTML render કરે છે) */
       fd.append("html", buildEmailHTML(p));
       fd.append("botcheck", "");
 
@@ -1178,7 +1177,9 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
     }
   }
 
-  /* 📩 MAILTO FALLBACK (beautiful plain text) */
+  /* =========================================================
+     📩 MAILTO FALLBACK — Beautiful Plain Text
+     ========================================================= */
   function openMailto(p){
     const line = "─────────────────────────────";
     const body = [
@@ -1217,7 +1218,9 @@ select.f-input{appearance:none;-webkit-appearance:none;background-image:url("dat
     window.location.href = url;
   }
 
-  /* 📝 ORDER FORM */
+  /* =========================================================
+     📝 ORDER FORM HANDLER
+     ========================================================= */
   const orderForm = document.getElementById("orderForm");
   const ofStatus  = document.getElementById("ofStatus");
   function showStatus(msg, type){
