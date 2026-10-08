@@ -164,6 +164,22 @@ input,select,textarea{font-family:inherit;}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
 
 /* =========================================================
+   PROJECTS GRID — FULLY RESPONSIVE
+   ========================================================= */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px;
+  margin-bottom:52px;
+}
+@media (max-width:600px){
+  .projects-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+}
+
+/* =========================================================
    SCROLL PROGRESS
    ========================================================= */
 .scroll-progress{
@@ -1457,7 +1473,7 @@ select.f-input{
   </div>
 </section>
 
-<!-- ============ PROJECTS (BOOTSTRAP GRID) ============ -->
+<!-- ============ PROJECTS (FULLY RESPONSIVE CSS GRID) ============ -->
 <section id="projects" class="section">
   <div class="container">
     <div class="section-head">
@@ -1466,51 +1482,48 @@ select.f-input{
       <p class="lead-text">Real projects built with modern technologies and clean design.</p>
     </div>
 
-    <div class="row row-cols-1 row-cols-md-2 g-4" style="margin-bottom:52px;">
-      <div class="col">
-        <article class="proj">
-          <div class="proj-thumb"><i class="fa-solid fa-mug-hot"></i></div>
-          <div class="proj-body">
-            <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
-            <h5>Cafe Aurora</h5>
-            <p>A modern and elegant cafe website with clean interface, responsive layout and warm cafe-inspired experience.</p>
-            <a href="https://omsagarka07.github.io/Cafe-Aurora/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </article>
-      </div>
-      <div class="col">
-        <article class="proj">
-          <div class="proj-thumb"><i class="fa-solid fa-mobile-screen-button"></i></div>
-          <div class="proj-body">
-            <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
-            <h5>Mobile Shopping</h5>
-            <p>A modern and responsive mobile shopping website featuring a clean interface and product showcase.</p>
-            <a href="https://omsagarka07.github.io/Mobile-shoping/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </article>
-      </div>
-      <div class="col">
-        <article class="proj">
-          <div class="proj-thumb"><i class="fa-solid fa-moon"></i></div>
-          <div class="proj-body">
-            <div class="proj-tags"><span>HTML5</span><span>CSS3</span></div>
-            <h5>The Moonlit Cafe</h5>
-            <p>A warm and elegant cafe website with responsive layout, custom styling and relaxing digital cafe experience.</p>
-            <a href="https://omsagarka07.github.io/the-moonlit-cafe/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </article>
-      </div>
-      <div class="col">
-        <article class="proj">
-          <div class="proj-thumb"><i class="fa-solid fa-user-tie"></i></div>
-          <div class="proj-body">
-            <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
-            <h5>Personal Portfolio</h5>
-            <p>A modern and responsive personal portfolio website showcasing my skills, projects, learning journey, achievements, and experience as a Computer Engineering student.</p>
-            <a href="https://omsagarka07.github.io/Portfolio/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-          </div>
-        </article>
-      </div>
+    <div class="projects-grid">
+
+      <article class="proj">
+        <div class="proj-thumb"><i class="fa-solid fa-mug-hot"></i></div>
+        <div class="proj-body">
+          <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+          <h5>Cafe Aurora</h5>
+          <p>A modern and elegant cafe website with clean interface, responsive layout and warm cafe-inspired experience.</p>
+          <a href="https://omsagarka07.github.io/Cafe-Aurora/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-thumb"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <div class="proj-body">
+          <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+          <h5>Mobile Shopping</h5>
+          <p>A modern and responsive mobile shopping website featuring a clean interface and product showcase.</p>
+          <a href="https://omsagarka07.github.io/Mobile-shoping/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-thumb"><i class="fa-solid fa-moon"></i></div>
+        <div class="proj-body">
+          <div class="proj-tags"><span>HTML5</span><span>CSS3</span></div>
+          <h5>The Moonlit Cafe</h5>
+          <p>A warm and elegant cafe website with responsive layout, custom styling and relaxing digital cafe experience.</p>
+          <a href="https://omsagarka07.github.io/the-moonlit-cafe/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="proj-thumb"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="proj-body">
+          <div class="proj-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap</span></div>
+          <h5>Personal Portfolio</h5>
+          <p>A modern and responsive personal portfolio website showcasing my skills, projects, learning journey, achievements, and experience as a Computer Engineering student.</p>
+          <a href="https://omsagarka07.github.io/Portfolio/" target="_blank" rel="noopener" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
+
     </div>
 
     <div class="text-center">
